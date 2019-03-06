@@ -10,7 +10,7 @@
     <!--private String nickName;-->
     <!--private String mobile;-->
     <!--private String account;-->
-    <insert id="registryuser" parameterType="com.lux.uchat.domain.User" keyProperty="userId">
+    <insert id="registryUser" parameterType="com.lux.uchat.domain.User"  >
         insert into user (passWord,email,nickName,mobile,account) values (#{passWord},#{email},#{nickName},#{mobile},#{account})
     </insert>
 </mapper>

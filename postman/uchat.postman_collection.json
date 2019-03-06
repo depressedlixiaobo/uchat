@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "582e6e05-1885-41d4-a072-350fcb9c200d",
+		"name": "uchat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registryUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \n\t\"passWord\":\"aaaa\",\n\t\"email\":\"bbbb\",\n\t\"nickName\":\"cccc\",\n\t\"account\":\"111111\",\n\t\"mobile\":\"1234567890123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/registryuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registryuser"
+					]
+				},
+				"description": "用户注册"
+			},
+			"response": []
+		}
+	]
+}

@@ -7,5 +7,17 @@ import java.util.List;
 
 @Mapper
 public interface UserDao {
-    public List<User> getuserList();
+    /**
+     * 获取所有用户信息
+     * @return
+     */
+    List<User> getuserList();
+
+    /**
+     * 用户注册
+     * @return
+     */
+    User registryUser(User user);
 }
+
+

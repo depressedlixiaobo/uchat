@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.lux.uchat.Dao")
+@MapperScan("com.lux.uchat.dao")
 public class UchatApplication {
 
     public static void main(String[] args) {

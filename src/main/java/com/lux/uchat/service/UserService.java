@@ -1,7 +1,7 @@
 package com.lux.uchat.service;
 
 import com.lux.uchat.domain.User;
-import com.lux.uchat.Dao.UserDao;
+import com.lux.uchat.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.lux.uchat.Dao;
+package com.lux.uchat.dao;
 
 import com.lux.uchat.domain.User;
 import org.apache.ibatis.annotations.Mapper;

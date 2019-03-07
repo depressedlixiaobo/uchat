@@ -21,6 +21,11 @@ public class UserController {
         return  _userService.getuserList();
     }
 
+    @RequestMapping("/findUser")
+    public  List<User> findUser(@RequestBody  User user){
+        return  _userService.findUser(user);
+    }
+
     @RequestMapping(value = "/registryuser" ,method = RequestMethod.POST)
     public ApiResult<Long> registryUser(@RequestBody User user){
 

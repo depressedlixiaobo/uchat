@@ -16,6 +16,9 @@ public class UserService {
         return  _dao.getuserList();
     }
 
+    public  List<User> findUser(User user){
+        return  _dao.findUser(user);
+    }
     public  User registryUser(User user){
 
         return _dao.registryUser(user);

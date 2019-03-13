@@ -34,7 +34,7 @@ public class UserController {
         Long userId = _userService.registryUser(user);
 
         if(userId>0){
-            result =   new ApiResult(0,"注册成功",userId);
+            result =   new ApiResult(0,"注册成功",user.getUserId());
 
         }else{
             result =   new ApiResult(-999,"注册失败","");

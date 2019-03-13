@@ -24,14 +24,15 @@ public class UserController {
     @RequestMapping(value = "/registryuser" ,method = RequestMethod.POST)
     public ApiResult<Long> registryUser(@RequestBody User user){
 
-        ApiResult result = new ApiResult();
+        ApiResult result ;
 
-        User _user = _userService.registryUser(user);
-        Long userId = _user.getUserId();
+        Long userId = _userService.registryUser(user);
+
         if(userId>0){
-            result.setCode(0);
-            result.setMsg("注册成功");
-            result.setData(userId);
+            result =   new ApiResult(0,"注册成功",userId);
+
+        }else{
+            result =   new ApiResult(-999,"注册失败","");
         }
         return   result;
 

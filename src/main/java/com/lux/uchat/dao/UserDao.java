@@ -17,7 +17,7 @@ public interface UserDao {
      * 用户注册
      * @return
      */
-    User registryUser(User user);
+    Long registryUser(User user);
 }
 
 

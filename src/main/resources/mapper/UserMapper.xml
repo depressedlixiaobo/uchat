@@ -10,7 +10,15 @@
     <!--private String nickName;-->
     <!--private String mobile;-->
     <!--private String account;-->
-    <insert id="registryUser" parameterType="com.lux.uchat.domain.User"  >
-        insert into user (passWord,email,nickName,mobile,account) values (#{passWord},#{email},#{nickName},#{mobile},#{account})
+    <insert id="registryUser" useGeneratedKeys="true" parameterType="com.lux.uchat.domain.User"  >
+        insert into user
+         (passWord,email,nickName,mobile,account)
+         values
+          (#{passWord},#{email},#{nickName},#{mobile},#{account})
+
+        <selectKey resultType="_long" keyProperty="userId"  order="AFTER" >
+            select @@IDENTITY
+        </selectKey>
+
     </insert>
 </mapper>

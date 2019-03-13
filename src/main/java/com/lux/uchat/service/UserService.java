@@ -16,7 +16,7 @@ public class UserService {
         return  _dao.getuserList();
     }
 
-    public  User registryUser(User user){
+    public  Long registryUser(User user){
 
         return _dao.registryUser(user);
     }

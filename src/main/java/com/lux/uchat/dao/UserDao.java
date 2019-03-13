@@ -18,6 +18,13 @@ public interface UserDao {
      * @return
      */
     Long registryUser(User user);
+
+    /**
+     * 查找用户
+     * @param user
+     * @return
+     */
+    List<User> findUser(User user);
 }
 
 

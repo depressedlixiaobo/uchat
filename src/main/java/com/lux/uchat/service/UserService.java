@@ -20,4 +20,7 @@ public class UserService {
 
         return _dao.registryUser(user);
     }
+     public  List<User> findUser(User user){
+        return  _dao.findUser(user);
+    }
 }

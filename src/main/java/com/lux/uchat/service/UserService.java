@@ -3,6 +3,7 @@ package com.lux.uchat.service;
 import com.lux.uchat.domain.User;
 import com.lux.uchat.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -13,6 +14,7 @@ public class UserService {
     @Autowired
     private UserDao _dao ;
 
+    @Cacheable(value = "users")
     public List<User> getuserList(){
         return  _dao.getuserList();
     }

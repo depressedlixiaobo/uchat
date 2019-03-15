@@ -5,6 +5,7 @@ import com.lux.uchat.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -17,11 +18,13 @@ public class UserService {
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
+    @Autowired
+    private StringRedisTemplate  stringRedisTemplate;
 
     public List<User> getuserList(){
 
         List<User> userList =   _dao.getuserList();
-        redisTemplate.opsForValue().set("userlist",userList);
+
         redisTemplate.opsForValue().set("userlist11",userList.get(0));
         return  userList;
     }

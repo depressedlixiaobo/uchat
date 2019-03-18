@@ -2,6 +2,8 @@ package com.lux.uchat.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,8 @@ import java.time.Duration;
 
 @Configuration
 public class RedisConfig  {
+    @Value("${custom.redis.prefixKey}")
+    private String redisPrefixKey ;
 
     @Bean
     public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
@@ -43,6 +47,7 @@ public class RedisConfig  {
         return redisTemplate;
 
     }
+
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
         FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Object.class);
@@ -52,7 +57,7 @@ public class RedisConfig  {
 
         /* 默认配置， 默认超时时间为30s */
         RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig()
-                .computePrefixWith(cacheName -> "prefix_" + cacheName)
+                .computePrefixWith(cacheName -> redisPrefixKey + cacheName)
 
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(fastJsonRedisSerializer))

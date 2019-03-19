@@ -5,10 +5,8 @@ import com.lux.uchat.domain.User;
 import com.lux.uchat.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -46,6 +44,14 @@ public class UserController {
         }
         return   result;
 
+    }
+    @PostMapping("/api/upload")
+    public ApiResult<String> upload(@RequestParam("file") MultipartFile file){
+        ApiResult result  = new ApiResult();
+        System.out.println(file.getOriginalFilename());
+
+
+        return  result;
     }
 }
 

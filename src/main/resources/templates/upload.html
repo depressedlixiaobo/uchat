@@ -8,10 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="/api/upload"   enctype="multipart/form-data">
+<form id="myform" method="post" action="/api/upload"   enctype="multipart/form-data">
     <input type="file" name="file">
-    <input type="submit" value="submit">
+    <input type="button" id="aa" value="submit">
 </form>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("aa")
 
+        var myform =  document.getElementById("myform")
+        btn.onclick = function () {
+            myform.submit()
+            return false
+
+        }
+    }
+</script>
 </body>
 </html>

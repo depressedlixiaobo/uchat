@@ -12,11 +12,11 @@
     <result column="cid" jdbcType="INTEGER" property="cid" />
   </resultMap>
   <insert id="insert" parameterType="com.lux.uchat.domain.Users">
-    insert into users (" id", username, password, 
-      face_image, face_image_big, nickname, 
+    insert into users (" id", username, password,
+      face_image, face_image_big, nickname,
       qrcode, cid)
-    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{faceImage,jdbcType=VARCHAR}, #{faceImageBig,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{faceImage,jdbcType=VARCHAR}, #{faceImageBig,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
       #{qrcode,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.lux.uchat.domain.Users">

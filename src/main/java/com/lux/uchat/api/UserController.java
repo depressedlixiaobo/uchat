@@ -1,7 +1,10 @@
 package com.lux.uchat.api;
 
+import com.lux.uchat.anno.CurrentUser;
+import com.lux.uchat.anno.IgnoreSecurity;
 import com.lux.uchat.common.ApiResult;
 import com.lux.uchat.domain.User;
+import com.lux.uchat.domain.Users;
 import com.lux.uchat.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +28,20 @@ public class UserController {
     @Value("${custom.upload.filePath}")
     private String _filePath;
 
+
     @ApiOperation(value="获取用户列表", notes="11")
     @RequestMapping(value = "/getuserlist",method = RequestMethod.GET)
+
     public List<User> getuserlist(){
+
         return  _userService.getuserList();
     }
 
 
     @RequestMapping("/findUser")
-    public  List<User> findUser(@RequestBody  User user){
+    @IgnoreSecurity
+    public  List<User> findUser(@RequestBody  User user, @CurrentUser Users users){
+        System.out.println(users);
         return  _userService.findUser(user);
     }
 
